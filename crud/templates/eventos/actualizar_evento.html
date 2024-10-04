@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Actualizar Evento</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Actualizar Evento</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Título:</label>
+                <input type="text" class="form-control" name="titulo" value="{{ evento.titulo }}" required>
+            </div>
+            <div class="form-group">
+                <label>Descripción:</label>
+                <textarea class="form-control" name="descripcion" required>{{ evento.descripcion }}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Fecha:</label>
+                <input type="date" class="form-control" name="fecha" value="{{ evento.fecha }}" required>
+            </div>
+            <div class="form-group">
+                <label>Ubicación:</label>
+                <input type="text" class="form-control" name="ubicacion" value="{{ evento.ubicacion }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar Evento</button>
+            <a href="{% url 'listar_eventos' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

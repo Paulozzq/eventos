@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Eventos</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Eventos</h2>
+        <ul class="list-group">
+            {% for evento in eventos %}
+                <li class="list-group-item">
+                    <strong>{{ evento.titulo }}</strong> - {{ evento.fecha }}
+                    <div class="float-right">
+                        <a href="{% url 'registrar_usuario' evento.id %}" class="btn btn-link">Registrar Usuario</a>
+                        <a href="{% url 'actualizar_evento' evento.id %}" class="btn btn-warning btn-sm">Actualizar</a>
+                        <a href="{% url 'eliminar_evento' evento.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url 'listar_usuarios' evento.id %}" class="btn btn-info btn-sm">Ver Usuarios</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'crear_evento' %}" class="btn btn-primary mt-3">Crear Nuevo Evento</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
